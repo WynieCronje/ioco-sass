@@ -1,0 +1,31 @@
+{
+  "name": "ioco-sass",
+  "version": "0.9.1",
+  "description": "SASS Helpers for developers in iOCO",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx sass test/all.scss dist/test/index.css",
+    "start": "npx sass index.scss dist/build/index.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WynieCronje/ioco-sass.git"
+  },
+  "keywords": [
+    "sass",
+    "iOCO",
+    "colors",
+    "functions"
+  ],
+  "author": "Wynand Cronje",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WynieCronje/ioco-sass/issues"
+  },
+  "homepage": "https://github.com/WynieCronje/ioco-sass#readme",
+  "devDependencies": {
+    "sass": "^1.32.5",
+    "uglifyjs": "^2.4.11"
+  },
+  "dependencies": {}
+}
