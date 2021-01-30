@@ -1,0 +1,94 @@
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:map';
+
+//l = lighter
+//d = darker
+
+$_map-strategy-strength: (
+  50: (
+    "l": 12,
+  ),
+  100: (
+    "l": 30,
+  ),
+  200: (
+    "l": 50,
+  ),
+  300: (
+    "l": 70,
+  ),
+  400: (
+    "l": 85,
+  ),
+  500: (
+    "l": 100,
+  ),
+  600: (
+    "d": 87,
+  ),
+  700: (
+    "d": 70,
+  ),
+  800: (
+    "d": 54,
+  ),
+  900: (
+    "d": 25,
+  ),
+);
+
+@function palette-from-color($color) {
+  $result: ();
+
+  $baseLight: _base-light($color);
+  $baseDark: _base-dark($color);
+
+  @each $number, $strategy in $_map-strategy-strength {
+    $mixWith: transparent;
+    $strength: 0;
+
+    @if (map.get($strategy, "l")) {
+      $mixWith: $baseLight;
+      $strength: map.get($strategy, "l");
+    }
+
+    @if (map.get($strategy, "d")) {
+      $mixWith: $baseDark;
+      $strength: map.get($strategy, "d");
+    }
+
+    $mixed: color.mix($color, $mixWith, $strength);
+    $result: map.merge(
+      $result,
+      (
+        $number: $mixed,
+      )
+    );
+  }
+
+  @return $result;
+}
+
+//#region Privates
+
+@function _base-dark($color) {
+  $r: color.red($color);
+  $g: color.green($color);
+  $b: color.blue($color);
+
+  $r: math.floor(($r * $r) / 255);
+  $g: math.floor(($g * $g) / 255);
+  $b: math.floor(($b * $b) / 255);
+
+  $rgb: rgb($r $g $b);
+
+  @return $rgb;
+}
+
+@function _base-light($color) {
+  @return #ffffff;
+}
+
+//#endregion

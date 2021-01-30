@@ -1,0 +1,15 @@
+@use './blue-grey.scss' as _blue;
+@use './cool-grey.scss' as _cool;
+@use './material-grey.scss' as _material;
+@use './warm-grey.scss' as _warm;
+
+$_colors: (
+  "blue": _blue.get-colors(),
+  "cool": _cool.get-colors(),
+  "material": _material.get-colors(),
+  "warm": _warm.get-colors(),
+);
+
+@function get-colors() {
+  @return $_colors;
+}

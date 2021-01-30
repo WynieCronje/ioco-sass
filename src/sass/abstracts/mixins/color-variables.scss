@@ -1,0 +1,22 @@
+@use 'sass:string';
+@use '../functions' as functions;
+
+/*
+A mixin to print out a color map (palette) as css variables
+*/
+@mixin add-color-css-variables($colorsMap, $variableName, $addContrast: false) {
+  $indexOf: string.index($variableName, "--");
+ 
+  @if ($indexOf != 1) {
+    @error '$variableName (#{$variableName}) needs to start with --';
+  }
+
+  @each $variant, $color in $colorsMap {
+    #{$variableName}-#{$variant}: #{$color};
+
+    @if ($addContrast) {
+      $contrast: functions.contrast-of-color($color);
+      #{$variableName}-#{$variant}-contrast: #{$contrast};
+    }
+  }
+}

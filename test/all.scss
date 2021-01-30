@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../src/sass' as ioco with (
+  $lightContrast: #efefef,
+  $darkContrast: #333333,
+);
+
+$color: #ffaa55;
+
+$test1: ioco.contrast-of-color($color);
+$test2: ioco.palette-from-color($color);
+$tw: ioco.tailwind-get-colors();
+
+$tealMap: map.get($tw, "teal");
+
+@debug "$test1:" + $test1;
+@debug "$test2:" + map.get($test2, 100);
+@debug "$test3:" + map.get($tealMap, 100);
+
+.test {
+  color: $color;
+  $new: ioco.palette-from-color(#991313);
+  @include ioco.add-color-css-variables($test2, "--th-red", $addContrast: true);
+  @include ioco.add-color-css-variables($tealMap, "--th-primary", true);
+  @include ioco.add-color-css-variables($new, "--th-darker", true);
+}
