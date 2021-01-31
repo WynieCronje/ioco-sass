@@ -1,51 +1,45 @@
 @use './amber.scss' as _amber;
 @use './blue-light.scss' as _blue-light;
 @use './blue.scss' as _blue;
+@use './brown.scss' as _brown;
 @use './cyan.scss' as _cyan;
-@use './emerald.scss' as _emerald;
-@use './fuchsia.scss' as _fuchsia;
-@use './gray-blue.scss' as _gray-blue;
-@use './gray-cool.scss' as _gray-cool;
-@use './gray-true.scss' as _gray-true;
-@use './gray-warm.scss' as _gray-warm;
-@use './gray.scss' as _gray;
+@use './green-light.scss' as _green-light;
 @use './green.scss' as _green;
+@use './gray-blue.scss' as _gray-blue;
+@use './gray.scss' as _gray;
 @use './indigo.scss' as _indigo;
 @use './lime.scss' as _lime;
+@use './orange-deep.scss' as _orange-deep;
 @use './orange.scss' as _orange;
 @use './pink.scss' as _pink;
+@use './purple-deep.scss' as _purple-deep;
 @use './purple.scss' as _purple;
 @use './red.scss' as _red;
-@use './rose.scss' as _rose;
 @use './teal.scss' as _teal;
-@use './violet.scss' as _violet;
 @use './yellow.scss' as _yellow;
 
-$_tailwind-colors: (
+$_material-colors: (
   "amber": _amber.get-colors(),
-  "lightBlue": _blue-light.get-colors(),
+  "lightBLue": _blue-light.get-colors(),
   "blue": _blue.get-colors(),
+  "brown": _brown.get-colors(),
   "cyan": _cyan.get-colors(),
-  "emerald": _emerald.get-colors(),
-  "fuchsia": _fuchsia.get-colors(),
-  "blueGray": _gray-blue.get-colors(),
-  "coolGray": _gray-cool.get-colors(),
-  "trueGray": _gray-true.get-colors(),
-  "warmGray": _gray-warm.get-colors(),
-  "gray": _gray.get-colors(),
+  "lightGreen": _green-light.get-colors(),
   "green": _green.get-colors(),
+  "grayBlue": _gray-blue.get-colors(),
+  "gray": _gray.get-colors(),
   "indigo": _indigo.get-colors(),
   "lime": _lime.get-colors(),
+  "deepOrange": _orange-deep.get-colors(),
   "orange": _orange.get-colors(),
   "pink": _pink.get-colors(),
+  "deepPurple": _purple-deep.get-colors(),
   "purple": _purple.get-colors(),
   "red": _red.get-colors(),
-  "rose": _rose.get-colors(),
   "teal": _teal.get-colors(),
-  "violet": _violet.get-colors(),
   "yellow": _yellow.get-colors(),
 );
 
 @function get-colors() {
-  @return $_tailwind-colors;
+  @return $_material-colors;
 }

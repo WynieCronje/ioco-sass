@@ -9,6 +9,8 @@ $color: #ffaa55;
 $test1: ioco.contrast-of-color($color);
 $test2: ioco.palette-from-color($color);
 $tw: ioco.tailwind-get-colors();
+$dark: ioco.dark-mode-get-colors();
+$mat: ioco.material-get-colors();
 
 $tealMap: map.get($tw, "teal");
 
@@ -22,4 +24,22 @@ $tealMap: map.get($tw, "teal");
   @include ioco.add-color-css-variables($test2, "--th-red", $addContrast: true);
   @include ioco.add-color-css-variables($tealMap, "--th-primary", true);
   @include ioco.add-color-css-variables($new, "--th-darker", true);
+}
+
+.all {
+  $tw: ioco.tailwind-get-colors();
+  $dark: ioco.dark-mode-get-colors();
+  $mat: ioco.material-get-colors();
+
+  @each $name, $palette in $tw {
+    @include ioco.add-color-css-variables($palette, "--tw-#{$name}", $addContrast: true);
+  }
+  
+  @each $name, $palette in $dark {
+    @include ioco.add-color-css-variables($palette, "--dm-#{$name}", $addContrast: true);
+  }
+  
+  @each $name, $palette in $mat {
+    @include ioco.add-color-css-variables($palette, "--mat-#{$name}", $addContrast: true);
+  }
 }
