@@ -12,8 +12,14 @@ $test1: ioco.contrast-of-color($color);
 $customPalette: ioco.palette-from-color($color);
 
 // Same as Tailwind CSS palettes
+// https://tailwindcss.com/docs/customizing-colors
 // map.get($twPalette, 'teal'); // returns another map
 $twPalette: ioco.tailwind-get-colors();
+
+// Same as Material Color palettes
+// https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=512DA8
+// map.get($matPalette, 'teal'); // returns another map
+$matPalette: ioco.material-get-colors();
 ```
 
 ## Mixins
