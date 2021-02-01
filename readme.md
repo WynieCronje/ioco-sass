@@ -81,7 +81,7 @@ $tealMap: map.get($matPalette, 'teal');
 
 $twPalette: ioco.tailwind-get-colors();
 // One Color
-$emeraldMap: map.get($matPalette, 'emerald');
+$emeraldMap: map.get($twPalette, 'emerald');
 
 // All colors
 :root {
