@@ -23,18 +23,28 @@ $matPalette: ioco.material-get-colors();
 
 ## Mixins
 
+[In Code](src/sass/abstracts/mixins/color-variables.scss)
+
 ```scss
 @use '~ioco-sass' as ioco;
-$colorMap: ioco.palette-from-color(pink);
+
+$matPalette: ioco.material-get-colors();
+$tealMap: map.get($matPalette, "teal");
+$deepOrangeMap: map.get($matPalette, "deepOrange");
+
 :root {
-  @include add-color-css-variables($colorMap, 'th-pink');
+  @include add-color-css-variables($tealMap, "--th-pink");
+  @include add-color-css-variables($deepOrange, "--th-orange", true);
 }
 ```
 
 ## Pre selected Palettes
+
 Click on the **In Code** links to view all available names
+
 ### Material
-[In Code](src/sass/palettes/material/_index.scss) from [material](https://material.io/resources/color)  
+
+[In Code](src/sass/palettes/material/_index.scss) from [material](https://material.io/resources/color)
 
 <details>
 <summary>Show Example</summary>
@@ -45,32 +55,33 @@ Click on the **In Code** links to view all available names
 
 $matPalette: ioco.material-get-colors();
 // One Color
-$teal: map.get($matPalette, 'teal');
+$tealMap: map.get($matPalette, 'teal');
 
 // All colors
 :root {
-  @each $colorName, $colorMap in $matPalette{
+@each $colorName, $colorMap in $matPalette{
     @each $shade, $color in $colorMap{
       --mat-#{$colorName}-#{$shade}: $color;
-    }
-  }
 }
-```
-</details>  
- 
+}
+}
+
+````
+</details>
+
 ### Tailwind
-[In Code](src/sass/palettes/tailwind/_index.scss) from [tailwindcss](https://tailwindcss.com/docs/customizing-colors)  
+[In Code](src/sass/palettes/tailwind/_index.scss) from [tailwindcss](https://tailwindcss.com/docs/customizing-colors)
 
 <details>
 <summary>Show Example</summary>
-  
+
 ```scss
 @use '~ioco-sass' as ioco;
 @use 'sass:map' as map;
 
 $twPalette: ioco.tailwind-get-colors();
 // One Color
-$emerald: map.get($matPalette, 'emerald');
+$emeraldMap: map.get($matPalette, 'emerald');
 
 // All colors
 :root {
@@ -80,10 +91,12 @@ $emerald: map.get($matPalette, 'emerald');
     }
   }
 }
-```
-</details> 
+````
+
+</details>
 
 ### Dark Modes
+
 [In Code](src/sass/palettes/dark-mode/_index.scss) from [this article](https://uxdesign.cc/dark-mode-ui-design-the-definitive-guide-part-1-color-53dcfaea5129)
 
 <details>
@@ -98,12 +111,13 @@ $darkModes: ioco.dark-mode-get-colors();
 $dm-material: map.get($darkModes, 'material');
 
 :root {
-  --dm-bg: map.get($dm-material, "bg");
+--dm-bg: map.get($dm-material, "bg");
   --dm-50: map.get($dm-material, 50);
-  --dm-100: map.get($dm-material, 100);
+--dm-100: map.get($dm-material, 100);
 }
-```
-</details> 
+
+````
+</details>
 
 # Advanced
 
@@ -114,7 +128,7 @@ $dm-material: map.get($darkModes, 'material');
   $lightContrast: #efefef,
   $darkContrast: #333333,
 );
-```
+````
 
 ### With as
 
@@ -130,5 +144,3 @@ $dm-material: map.get($darkModes, 'material');
 Contrast by default uses either white or black.
 
 Dark modes available with preferred bg color
-
-
