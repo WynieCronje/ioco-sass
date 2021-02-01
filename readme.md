@@ -17,7 +17,7 @@ $customPalette: ioco.palette-from-color($color);
 $twPalette: ioco.tailwind-get-colors();
 
 // Same as Material Color palettes
-// https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=512DA8
+// https://material.io/resources/color
 // map.get($matPalette, 'teal'); // returns another map
 $matPalette: ioco.material-get-colors();
 ```
