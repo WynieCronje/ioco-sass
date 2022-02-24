@@ -24,14 +24,14 @@ $darkContrast: black !default;
   $green: list.nth(const.$linear-channel-values, color.green($color) + 1);
   $blue: list.nth(const.$linear-channel-values, color.blue($color) + 1);
 
-  @return 0.2126 * $red + 0.7152 * $green + 0.0722 * $blue;
+  @return calc(0.2126 * $red) + calc(0.7152 * $green) + calc(0.0722 * $blue);
 }
 
 @function _contrast($back, $front) {
   $backLum: _luminance($back) + 0.05;
   $foreLum: _luminance($front) + 0.05;
 
-  @return math.max($backLum, $foreLum) / math.min($backLum, $foreLum);
+  @return calc(math.max($backLum, $foreLum) / math.min($backLum, $foreLum));
 }
 
 //#endregion

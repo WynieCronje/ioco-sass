@@ -78,9 +78,9 @@ $_map-strategy-strength: (
   $g: color.green($color);
   $b: color.blue($color);
 
-  $r: math.floor(($r * $r) / 255);
-  $g: math.floor(($g * $g) / 255);
-  $b: math.floor(($b * $b) / 255);
+  $r: math.floor(calc(($r * $r) / 255));
+  $g: math.floor(calc(($g * $g) / 255));
+  $b: math.floor(calc(($b * $b) / 255));
 
   $rgb: rgb($r $g $b);
 
